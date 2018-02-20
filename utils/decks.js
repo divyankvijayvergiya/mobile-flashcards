@@ -12,7 +12,7 @@ export function setDummyData(){
           answer: 'React is a declarative, efficient, and flexible JavaScript library for building user interfaces.',
         },
         {
-          question: 'Where do you make Ajax requests in React?'
+          question: 'Where do you make Ajax requests in React?',
           answer: 'In the componentDidMount lifecycle event',
         },
       ],

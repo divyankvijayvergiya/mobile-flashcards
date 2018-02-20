@@ -1,44 +1,44 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import{
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import {
   Animated,
   Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
-} from 'react-native'
-import { gray, lightBlue, blue, offwhite, purple, white } from '../utils/colors'
-import TextInButton from './TextInButton'
+  View,
+} from 'react-native';
+import { gray, ltBlue, blue, offwhite, purple, white } from '../utils/colors';
+import TextInButton from './TextInButton';
 
-class IndividualDeckView extends Component {
-  state ={
+class IndivdualDeckView extends Component {
+  state = {
     bounceValue: new Animated.Value(1),
-  }
+  };
   static navigationOptions = ({ navigation }) => {
-    const { title } = navigation.state.params
+    const { title } = navigation.state.params;
     return {
       title,
-    }
-  }
+    };
+  };
   componentDidMount() {
-    const { bounceValue } = this.state
+    const { bounceValue } = this.state;
     Animated.sequence([
-      Animated.timing(bounceValue, { duration: 400, toValue: 1.2}),
-      Animated.spring(bounceValue, { toValue: 1, friction: 4}),
-    ]).start()
+      Animated.timing(bounceValue, { duration: 400, toValue: 1.2 }),
+      Animated.spring(bounceValue, { toValue: 1, friction: 4 }),
+    ]).start();
   }
-
   render() {
-    const { bounceValue } = this.state
-    const { title } = this.state.navigation.state.params
-    const questions = this.props.decks[title].questions
+    const { bounceValue } = this.state;
+    const { title } = this.props.navigation.state.params;
+    const questions = this.props.decks[title].questions;
 
     return (
-      <View style = {styles.container}>
+      <View style={styles.container}>
         <View style={[styles.group, { flex: 3 }]}>
           <Animated.Text
-            style={{ fontSize: 40, transform: [{ scale: bounceValue }]}}
+            style={{ fontSize: 40, transform: [{ scale: bounceValue }] }}
           >
             {title}
           </Animated.Text>
@@ -47,15 +47,15 @@ class IndividualDeckView extends Component {
           </Text>
         </View>
         <View
-          style={[styles.group, { flex: 2, justifyContent: 'space-around'}]}
+          style={[styles.group, { flex: 2, justifyContent: 'space-around' }]}
         >
           <TextInButton
-            style={{ backgroundColor: lightBlue }}
+            style={{ backgroundColor: ltBlue }}
             onPress={() => {
               this.props.navigation.navigate('NewQuestionView', {
                 title,
                 questions,
-              })
+              });
             }}
           >
             Add Card
@@ -72,7 +72,7 @@ class IndividualDeckView extends Component {
           </TextInButton>
         </View>
       </View>
-    )
+    );
   }
 }
 

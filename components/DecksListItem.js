@@ -1,6 +1,6 @@
-import React from 'react'
-import { View, StyleSheet, Text } from 'react-native'
-import { gray } from '../utils/colors'
+import React from 'react';
+import { View, StyleSheet, Text } from 'react-native';
+import { gray } from '../utils/colors';
 
 export default function DecksListItem({ title, questions }) {
   return (
@@ -12,7 +12,7 @@ export default function DecksListItem({ title, questions }) {
         </Text>
       </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 12,
   },
-})
+});

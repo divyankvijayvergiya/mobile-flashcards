@@ -1,16 +1,21 @@
-import React from 'react'
-import { View, Platform, StyleSheet, Text, TouchableOpacity } from 'react-native'
-import { gray, blue, white } from '../utils/colors'
+import React from 'react';
+import {
+  View,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
+import { gray, blue, white } from '../utils/colors';
 
-export default TextInButton = ({ children, onPress, style= {}}) => {
-  const btnStyle = Platform.OS === 'ios' ? styles.iosBtn : styles.androidBtn
+export default TextInButton = ({ children, onPress, style = {} }) => {
+  const btnStyle = Platform.OS === 'ios' ? styles.iosBtn : styles.AndroidBtn;
   return (
-    <TouchableOpacity onPress = {onPress} style={[ btnStyle, style]}>
+    <TouchableOpacity onPress={onPress} style={[btnStyle, style]}>
       <Text style={[styles.btnText, style]}>{children}</Text>
     </TouchableOpacity>
-  )
+  );
 }
-
 
 const styles = StyleSheet.create({
   iosBtn: {
@@ -21,8 +26,7 @@ const styles = StyleSheet.create({
     marginLeft: 40,
     marginRight: 40,
   },
-
-  androidBtn: {
+  AndroidBtn: {
     backgroundColor: blue,
     padding: 10,
     paddingLeft: 30,
@@ -33,11 +37,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-
   btnText: {
     color: white,
     fontSize: 22,
     textAlign: 'center',
-
   },
-})
+});

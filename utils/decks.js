@@ -1,38 +1,38 @@
-import { AsyncStorage } from 'react-native'
+import { AsyncStorage } from 'react-native';
 
-export const DECKS_STORAGE_KEY = "MobileFlashcards:decks"
+export const DECKS_STORAGE_KEY = 'MobileFlashcards:decks';
 
-export function setDummyData(){
+export function setDummyData() {
   let dummyData = {
     React: {
       title: 'React',
       questions: [
         {
           question: 'What is React?',
-          answer: 'React is a declarative, efficient, and flexible JavaScript library for building user interfaces.',
+          answer: 'A library for managing user interfaces',
         },
         {
           question: 'Where do you make Ajax requests in React?',
-          answer: 'In the componentDidMount lifecycle event',
+          answer: 'The componentDidMount lifecycle event',
         },
       ],
     },
-
-    Android: {
-      title: 'Android',
+    JavaScript: {
+      title: 'JavaScript',
       questions: [
         {
-          question: 'Does react-native works with Android?',
-          answer: 'Yes, react-native is cross development Platform use for both ios and android apps',
+          question: 'What is a closure?',
+          answer:
+            'The combination of a function and the lexical environment within which that function was declared.',
         },
       ],
     },
-  }
+  };
 
-  AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(dummyData))
+  AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(dummyData));
   return dummyData;
 }
 
-export function formatDecks(results){
-  return results === null ? setDummyData() : JSON.parse(results)
+export function formatDecks(results) {
+  return results === null ? setDummyData() : JSON.parse(results);
 }

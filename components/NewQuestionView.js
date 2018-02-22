@@ -14,6 +14,8 @@ import { addCard } from '../actions';
 import { connect } from 'react-redux';
 import { addCardDeck } from '../utils/api';
 import TextInButton from './TextInButton';
+import { NavigationActions } from 'react-navigation';
+
 
 class NewQuestionView extends Component {
   state = {
@@ -25,15 +27,15 @@ class NewQuestionView extends Component {
 
     const { question_text, answer_text } = this.state;
     let alert = null;
-    
+
     if (question_text === '') {
       alert = { title: 'Missing question', content: 'You need to fill in the question field' };
     }
-    
+
     if (answer_text === '') {
       alert = { title: 'Missing question', content: 'You need to fill in the answer field' };
     }
-    
+
     if (alert) {
       Alert.alert(alert.title, alert.content)
     }
@@ -50,8 +52,13 @@ class NewQuestionView extends Component {
         ' enter more cards, or go back'
     );
     this.setState({ question_text: '', answer_text: '' });
+    this.toDeck()
     return;
   };
+  toDeck = () => {
+       const backAction = NavigationActions.back()
+       this.props.navigation.dispatch(backAction)
+   }
   render() {
     const { question_text, answer_text } = this.state;
 
